@@ -15,7 +15,6 @@ input {
 
 .toggle {
   cursor: pointer;
-  transition: 0.5s all linear;
 }
 
 .box {
@@ -24,7 +23,6 @@ input {
 
 
 .boxshadow {
-  transition: 1s all linear;
   box-shadow: 10px 10px 20px rgb(168, 168, 168), -10px -10px 20px rgb(203, 202, 202);
 }
 
