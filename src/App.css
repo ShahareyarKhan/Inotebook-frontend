@@ -1,0 +1,88 @@
+button {
+  transition: 2s all ease;
+}
+
+button:hover {
+  border-radius: 20px;
+  background: none;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px #d0c9c9e0;
+}
+
+input {
+  background: none;
+}
+
+.toggle {
+  cursor: pointer;
+  transition: 0.5s all linear;
+}
+
+.box {
+  box-shadow: 4px 7px 30px rgba(58, 66, 131, 0.586);
+}
+
+
+.boxshadow {
+  transition: 1s all linear;
+  box-shadow: 10px 10px 20px rgb(168, 168, 168), -10px -10px 20px rgb(203, 202, 202);
+}
+
+.boxshadow:hover {
+  border: 2px solid black;
+}
+
+.boxshadow2 {
+  box-shadow: 10px 10px 10px rgb(177, 180, 185) inset, -10px -10px 10px rgb(177, 180, 185) inset;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.appear {
+  background: #000;
+  font-size: 300px;
+}
+
+.logout:hover> :nth-child(2) {
+  display: block;
+}
+
+.note:hover> :nth-child(2) {
+  display: flex;
+}
+
+.note {
+  transition: 0.3s all ease;
+  background-image: radial-gradient(white, rgb(229, 206, 206));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgba(218, 164, 99, 0.515) inset, -10px -10px 10px rgba(217, 152, 72, 0.515) inset;
+  transition: 0.5s all ease;
+  height: 200px;
+  color: black;
+}
+
+.notedark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 10px rgba(248, 248, 248, 0.515) inset, -1px -1px 10px rgba(255, 255, 255, 0.515) inset;
+  transition: 0.5s all ease;
+  color: white;
+  height: 200px;
+}
+
+.note:hover {
+  transform: scale(1.02);
+}
+
+.notedark:hover {
+  transform: scale(1.02);
+}
