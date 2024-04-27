@@ -56,6 +56,9 @@ input {
 .note:hover> :nth-child(2) {
   display: flex;
 }
+.notedark:hover> :nth-child(2) {
+  display: flex;
+}
 
 .note {
   transition: 0.3s all ease;
