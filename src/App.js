@@ -13,7 +13,6 @@ const App = () => {
           <Route exact path='/' element={<Home />}/>
           <Route path='/loginsignup' element={<Both/>}/>
         </Routes>
-
       </Router>
      
     </div>

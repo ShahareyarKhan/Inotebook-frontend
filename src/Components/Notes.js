@@ -163,7 +163,10 @@ const Notes = ({ mode, setmode }) => {
                 </div>
 
                 {message !== "" ? (<div className='text-center text-[#ff1e1e] font-semibold text-xl  my-3'>{message}</div>
-                ) : (<div className={`text-center text-sm my-2 ${mode !== "light" ? "text-white" : "text-[#000000]"} `}>To access the complete view, simply click on the title or description of any notes.</div>)}
+                ) : (<div className={`text-center text-sm my-2 ${mode !== "light" ? "text-white" : "text-black"} `}>
+                To access the full view, click on the title or description of any note. <br />Hover over a note block to edit or delete it.
+              </div>
+              )}
 
                 {notes.length === 0 ? (
                     <div className={`text-center text-xl  pt-9 ${mode === "light" ? "text-gray-600" : "text-gray-300"}`}>

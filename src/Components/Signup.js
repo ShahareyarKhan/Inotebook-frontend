@@ -58,7 +58,7 @@ const Signup = () => {
     <div className='relative'>
       <div className='w-full mx-auto flex   justify-center items-center flex-col px-4 p-9'>
         <div>
-          <h1 className='text-3xl font-bold'>Register</h1>
+          <h1 className='text-2xl md:text-3xl font-bold'>Register to Inotebook</h1>
         </div>
         <form className='my-9 w-full flex flex-col gap-9' onSubmit={handleSignUp}>
           <input type="text" name="" id="name" placeholder='Enter Name' className='border-b-2 p-2 border-black outline-none w-full' value={name} onChange={handleNameChange} required minLength={3} />
