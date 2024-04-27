@@ -71,17 +71,17 @@ const Header = ({ mode, setmode }) => {
             </div>
 
 
-            {close && <div className='absolute flex items-center w-full  mx-auto min-h-[80vh] z-40 '>
-                <div className={` mx-3   ${mode === "light" ? "bg-[rgb(228,134,83)]" : "bg-[#fff] text-black"} rounded-xl flex flex-col  gap-4 px-5 py-3 `}>
-                    <IoMdClose onClick={() => setclose(!close)} className='text-2xl cursor-pointer font-bold ' />
+            {close && <div className='absolute flex items-center justify-center w-full  mx-auto min-h-[80vh] z-40 '>
+                <div className={` mx-3   ${mode === "light" ? "bg-[rgb(228,134,83)]" : "bg-[#fff] text-black"} rounded-xl flex flex-col  gap-4 px-5 py-5 `}>
+                    <IoMdClose onClick={() => setclose(!close)} className='text-xl cursor-pointer font-bold ' />
 
-                    <div className='flex justify-center text-2xl font-semibold '>
+                    <div className='flex justify-center text-xl font-semibold '>
                         Profile
                     </div>
-                    <div className='flex font-semibold my-2 text-xl'>
+                    <div className='flex font-semibold  '>
                         Name : {user.name}
                     </div>
-                    <div className='flex font-semibold my-2 text-xl'>
+                    <div className='flex font-semibold '>
                         Email : {user.email}
                     </div>
 
