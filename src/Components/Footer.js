@@ -3,7 +3,7 @@ import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 const Footer = ({mode, setmode}) => {
     return (
-        <div className={` ${mode === "light" ? "bg-[#feb55b] text-black" : "bg-[#14152d] text-white"} w-full flex justify-around p-3 items-center py-7`}>
+        <div className={` ${mode === "light" ? "bg-[#feb55b] text-black" : "bg-[#14152d] text-white"} w-full flex  justify-between md:justify-around p-3 items-center py-7`}>
             <div className='text-xl font-semibold'>INotebook</div>
             <div className='flex gap-9'>
                 <div><a href="https://www.instagram.com/_shahareyar_/"><FaInstagram className='text-3xl hover:box-shadow'/></a></div>
