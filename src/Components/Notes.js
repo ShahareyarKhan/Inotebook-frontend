@@ -13,7 +13,7 @@ const customStyles = {
         width: "90%",
         border: "1px solid black",
         transform: 'translate(-50%, -50%)',
-        maxwidth: "500px",
+        maxWidth: "600px",
     },
 };
 
