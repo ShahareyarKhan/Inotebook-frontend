@@ -72,7 +72,7 @@ const Header = ({ mode, setmode }) => {
 
 
             {close && <div className='absolute flex items-center w-full  mx-auto min-h-[80vh] z-40 '>
-                <div className={` mx-auto   ${mode === "light" ? "bg-[rgb(228,134,83)]" : "bg-[#fff] text-black"} rounded-xl flex flex-col  gap-4 px-5 py-3 `}>
+                <div className={` mx-3   ${mode === "light" ? "bg-[rgb(228,134,83)]" : "bg-[#fff] text-black"} rounded-xl flex flex-col  gap-4 px-5 py-3 `}>
                     <IoMdClose onClick={() => setclose(!close)} className='text-2xl cursor-pointer font-bold ' />
 
                     <div className='flex justify-center text-2xl font-semibold '>
