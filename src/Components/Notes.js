@@ -10,9 +10,10 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        width: "500px",
+        width: "90%",
         border: "1px solid black",
         transform: 'translate(-50%, -50%)',
+        maxwidth: "500px",
     },
 };
 
