@@ -48,7 +48,7 @@ const Header = ({ mode, setmode }) => {
     }
     return (
         <div className={` ${mode === "light" ? "bg-[#ff6600a2]" : "bg-[#080917] text-white"} `}>
-            <div className='flex justify-between w-full md:w-4/5 lg:w-2/3 mx-auto p-9 items-center -z-40'>
+            <div className='flex justify-between w-full md:w-4/5 lg:w-2/3 mx-auto p-5 md:p-7 lg:p-9 items-center -z-40'>
 
                 <div className={`text-xl font-semibold `} style={{ fontFamily: "cursive" }}>
                     INotebook
