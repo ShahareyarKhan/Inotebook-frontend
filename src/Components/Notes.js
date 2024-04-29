@@ -124,6 +124,8 @@ const Notes = ({ mode, setmode }) => {
                 setmessage("");
             }, 1500);
             closeModal();
+        setopenEdit(false);
+
         } catch (error) {
             console.error("Error updating note:", error.message);
         }
@@ -187,7 +189,7 @@ const Notes = ({ mode, setmode }) => {
                             </div>
 
 
-                            <div className='absolute top-0 text-2xl right-0  flex-col  bg-[#ff8102] hidden '>
+                            <div className='absolute top-0 text-2xl right-0 flex flex-col  bg-[#ff8102]  '>
                                 <div className='p-2  bg-red-600'>
 
                                     <MdDelete
