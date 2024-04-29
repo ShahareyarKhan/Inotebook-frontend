@@ -124,7 +124,7 @@ const Notes = ({ mode, setmode }) => {
                 setmessage("");
             }, 1500);
             closeModal();
-        setopenEdit(false);
+            setopenEdit(false);
 
         } catch (error) {
             console.error("Error updating note:", error.message);
@@ -166,9 +166,9 @@ const Notes = ({ mode, setmode }) => {
 
                 {message !== "" ? (<div className='text-center text-[#ff1e1e] font-semibold text-xl  my-3'>{message}</div>
                 ) : (<div className={`text-center text-sm my-2 ${mode !== "light" ? "text-white" : "text-black"} `}>
-              Hover over a note block to edit or delete it.
-              </div>
-              )}
+                    Hover over a note block to edit or delete it.
+                </div>
+                )}
 
                 {notes.length === 0 ? (
                     <div className={`text-center text-xl  pt-9 ${mode === "light" ? "text-gray-600" : "text-gray-300"}`}>
@@ -258,7 +258,7 @@ const Notes = ({ mode, setmode }) => {
                 </div>
             </div>}
             {show && <div className='absolute top-0 h-screen w-full  flex justify-center items-center bg-black bg-opacity-90'>
-                <div className='max-w-[600px] w-3/4  bg-white p-7 rounded-xl border-2 border-black'>
+                <div className='max-w-[600px] w-full overflow-auto h-screen  bg-white p-7 rounded-xl border-2 border-black'>
                     <MdClose className='text-2xl cursor-pointer' onClick={() => setshow(false)} />
                     <h1 className='text-xl text-center font-semibold'>Notes</h1>
                     <div className='mt-3'>
