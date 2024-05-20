@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { GoogleLogin } from '@react-oauth/google';
 
 const Login = () => {
     const [email, setemail] = useState("");
@@ -56,7 +56,14 @@ const Login = () => {
                 <button type="submit" className='p-2 mt-9 bg-[#ff9719]  text-black border-2 rounded-xl font-semibold' >Log In</button>
             </form>
             <div className={`absolute  bg-green-400 text-xl p-4 w-full text-center font-semibold top-1  ${login === true ? "opacity-1" : "opacity-0"}`} style={{ transition: "2s all ease" }}>Login Successfully.</div>
-
+            <GoogleLogin
+                onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+                }}
+                onError={() => {
+                    console.log('Login Failed');
+                }}
+            />
         </div>
     )
 }
