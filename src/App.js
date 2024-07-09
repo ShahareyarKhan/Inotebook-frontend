@@ -3,7 +3,7 @@ import './App.css'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Components/Home';
-import Both from './Components/Both';
+import LoginFirebase from './Components/LoginFirebase';
 
 const App = () => {
   return (
@@ -11,12 +11,11 @@ const App = () => {
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />}/>
-          <Route path='/loginsignup' element={<Both/>}/>
+          <Route exact path='/loginsignup' element={<LoginFirebase/>}/>
         </Routes>
       </Router>
-     
     </div>
   )
 }
 
-export default App
+export default App;

@@ -8,7 +8,7 @@ const HomePage = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
-            navigate('/loginsignup');
+            navigate('/loginsignup')
         }
         // eslint-disable-next-line
     }, []);
@@ -18,7 +18,7 @@ const HomePage = () => {
     return (
         <>
             <Header mode={mode} setmode={setmode} />
-            <div className=' min-h-screen   ' >
+            <div className=' min-h-screen ' >
                 <Notes mode={mode} setmode={setmode} />
             </div>
             <Footer mode={mode} setmode={setmode}/>
