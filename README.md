@@ -1,4 +1,4 @@
-# iNotebook
+# INotebook
 
 iNotebook is a web-based application where users can create, view, update, and delete their personal notes. The application features authentication and dark mode, providing a simple and efficient user experience.
 
