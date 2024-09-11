@@ -11,11 +11,12 @@ const App = () => {
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />}/>
-          <Route path='/loginsignup' element={<Both/>}/>
+          <Route exact path='/loginsignup' element={<Both/>}/>
+          
         </Routes>
       </Router>
     </div>
   )
 }
 
-export default App
+export default App;

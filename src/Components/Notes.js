@@ -124,6 +124,8 @@ const Notes = ({ mode, setmode }) => {
                 setmessage("");
             }, 1500);
             closeModal();
+            setopenEdit(false);
+
         } catch (error) {
             console.error("Error updating note:", error.message);
         }
@@ -163,7 +165,7 @@ const Notes = ({ mode, setmode }) => {
                 </div>
 
                 {message !== "" ? (<div className='text-center text-[#ff1e1e] font-semibold text-xl  my-3'>{message}</div>
-                ) : (<div className={`text-center text-xs my-2 ${mode !== "light" ? "text-white" : "text-black"} `}>
+                ) : (<div className={`text-center text-sm my-2 ${mode !== "light" ? "text-white" : "text-black"} `}>
               Hover over a note block to edit or delete it.
               </div>
               )}
@@ -187,7 +189,7 @@ const Notes = ({ mode, setmode }) => {
                             </div>
 
 
-                            <div className='absolute top-0 text-2xl right-0  flex-col  bg-[#ff8102] hidden '>
+                            <div className='absolute top-0 text-2xl right-0 flex flex-col  bg-[#ff8102]  '>
                                 <div className='p-2  bg-red-600'>
 
                                     <MdDelete
@@ -256,7 +258,7 @@ const Notes = ({ mode, setmode }) => {
                 </div>
             </div>}
             {show && <div className='absolute top-0 h-screen w-full  flex justify-center items-center bg-black bg-opacity-90'>
-                <div className='max-w-[600px] w-3/4  bg-white p-7 rounded-xl border-2 border-black'>
+                <div className='max-w-[600px] w-full overflow-auto h-screen  bg-white p-7 rounded-xl border-2 border-black'>
                     <MdClose className='text-2xl cursor-pointer' onClick={() => setshow(false)} />
                     <h1 className='text-xl text-center font-semibold'>Notes</h1>
                     <div className='mt-3'>
