@@ -158,12 +158,12 @@ const Notes = ({ mode, setmode }) => {
     return (
         <div className={`main min-h-screen ${mode === "light" ? "bg-white" : "bg-[#000000]"}`}>
             <div className='w-full md:w-4/5 lg:w-2/3 mx-auto'>
-                <div className={`text-center text-3xl font-bold pt-9 ${mode === "light" ? "text-black" : "text-white"}`}>
+                <div className={`text-center text-2xl font-bold pt-9 ${mode === "light" ? "text-black" : "text-white"}`}>
                     Your Notes
                 </div>
 
                 {message !== "" ? (<div className='text-center text-[#ff1e1e] font-semibold text-xl  my-3'>{message}</div>
-                ) : (<div className={`text-center text-sm my-2 ${mode !== "light" ? "text-white" : "text-black"} `}>
+                ) : (<div className={`text-center text-xs my-2 ${mode !== "light" ? "text-white" : "text-black"} `}>
               Hover over a note block to edit or delete it.
               </div>
               )}
@@ -208,8 +208,8 @@ const Notes = ({ mode, setmode }) => {
 
                 </div>
 
-                <div className={`fixed w-[60px] h-[60px] border-2  rounded-full right-9 bottom-9 lg:right-[100px] lg:bottom-[100px] flex items-center justify-center cursor-pointer ${mode !== "light" ? "bg-white" : "bg-black"}`} onClick={openModal}>
-                    <FaPlus className={`text-3xl ${mode === "light" ? "text-white" : "text-black"}`} />
+                <div className={`fixed w-[50px] h-[50px] border-2  rounded-full right-9 bottom-9 lg:right-[100px] lg:bottom-[100px] flex items-center justify-center cursor-pointer ${mode !== "light" ? "bg-white" : "bg-black"}`} onClick={openModal}>
+                    <FaPlus className={`text-2xl ${mode === "light" ? "text-white" : "text-black"}`} />
                 </div>
                 <div>
                     <Modal

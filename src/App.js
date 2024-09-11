@@ -14,7 +14,6 @@ const App = () => {
           <Route path='/loginsignup' element={<Both/>}/>
         </Routes>
       </Router>
-     
     </div>
   )
 }

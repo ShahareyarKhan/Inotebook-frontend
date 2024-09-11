@@ -47,25 +47,24 @@ const Header = ({ mode, setmode }) => {
         }
     }
     return (
-        <div className={` ${mode === "light" ? "bg-[#ff6600a2]" : "bg-[#080917] text-white"} `}>
+        <div className={` ${mode === "light" ? "bg-[#ff66008d]" : "bg-[#080917] text-white"} `}>
             <div className='flex justify-between w-full md:w-4/5 lg:w-2/3 mx-auto p-5 md:p-7 lg:p-9 items-center -z-40'>
 
-                <div className={`text-xl font-semibold `} style={{ fontFamily: "cursive" }}>
+                <div className={`text-xl font-bold `} >
                     INotebook
                 </div>
 
-                <div className='flex gap-11 items-center '>
+                <div className='flex gap-8 items-center '>
                     <div className='relative logout flex '>
-                        <div className='font-bold ' onClick={handleLogout}>
-                            <IoMdLogOut className='text-3xl cursor-pointer font-bold ' />
+                        <div className='cursor-pointer font-semibold text-sm  px-2 p-1 rounded-xl shadow-2xl border shadow-black' onClick={handleLogout}>
+                            Logout
                         </div>
-                        <div className='absolute top-[30px] hidden '>Logout</div>
                     </div>
                     <div>
-                        <div><CgProfile className='text-3xl cursor-pointer font-bold ' onClick={() => setclose(!close)} /></div>
+                        <div><CgProfile className='text-2xl cursor-pointer font-bold ' onClick={() => setclose(!close)} /></div>
                     </div>
                     <div>
-                        <div><MdDarkMode className='text-3xl cursor-pointer font-bold ' onClick={handledarkmode} /></div>
+                        <div><MdDarkMode className='text-2xl cursor-pointer font-bold ' onClick={handledarkmode} /></div>
                     </div>
                 </div>
             </div>

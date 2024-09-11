@@ -44,10 +44,10 @@ const Login = () => {
     };
 
     return (
-        <div className='relative w-full mx-auto flex justify-center items-center flex-col px-4 p-9 bg-white'>
+        <div className='relative w-full mx-auto flex justify-center items-center flex-col px-4  bg-white'>
 
             <div>
-                <h1 className='text-2xl md:text-3xl font-bold'>LogIn to Inotebook</h1>
+                <h1 className='text-2xl  font-bold'>Log In to INotebook</h1>
 
             </div>
             <form className='my-9 w-full flex flex-col ' onSubmit={handleLogIn}>

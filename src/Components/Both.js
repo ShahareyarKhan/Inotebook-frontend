@@ -7,14 +7,15 @@ const Both = () => {
     return (
         <div className=' h-[100vh] flex items-center justify-center'>
 
-            <div className=' flex flex-col  w-full mx-2 md:w-2/3 lg:w-1/3 border-[2px] rounded-[10px] border-black toggle box  max-w-[600px]'>
-
-                <div className='flex bg-[#ff9719] rounded-full'>
-                    <div className={`w-1/2 flex justify-center p-5 text-xl font-semibold ${login === true ? "bg-white rounded-l-[9px]" : "bg-inherit rounded-[9px]"} toggle`} onClick={() => setlogin(true)} >Login</div>
-                    <div className={`w-1/2  flex justify-center p-5 text-xl font-semibold ${login === false ? "bg-white rounded-r-[9px]" : "bg-inherit rounded-[9px]"} toggle `} onClick={() => setlogin(false)} >Register</div>
+            <div className=' flex flex-col  w-[95%] mx-2 md:w-2/3  border-[1px] rounded border-gray-400  max-w-[600px]'>
+                <div>
+                    <img src="https://static.vecteezy.com/system/resources/previews/029/722/382/original/notes-icon-in-trendy-flat-style-isolated-on-white-background-notes-silhouette-symbol-for-your-website-design-logo-app-ui-illustration-eps10-free-vector.jpg" alt="" className='w-[50px] block mx-auto my-5' />
                 </div>
-
                 {login === true ? <Login /> : <Signup />}
+
+                {
+                    login ? <div onClick={() => setlogin(false)} className='text-sm pb-6 text-center font-semibold cursor-pointer'>New User ?  Sign up</div> : <div className='text-sm pb-6 font-semibold cursor-pointer text-center' onClick={() => setlogin(true)}>Already an Account ? Login</div>
+                }
 
             </div>
 
