@@ -60,14 +60,12 @@ input {
 
 .note {
   transition: 0.3s all ease;
-  background-image: radial-gradient(white, rgb(229, 206, 206));
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 10px 10px rgba(218, 164, 99, 0.515) inset, -10px -10px 10px rgba(217, 152, 72, 0.515) inset;
+  box-shadow: 10px 10px 10px rgba(99, 137, 218, 0.515) inset, -10px -10px 10px rgba(99, 137, 218, 0.515) inset;
   transition: 0.5s all ease;
   height: 200px;
-  color: black;
 }
 
 .notedark {

@@ -25,14 +25,9 @@ const Header = ({ mode, setmode }) => {
                     const data = await response.json();
                     setUser(data.user);
                     console.log(data)
-                } else {
-                    // Handle error
-
-
                 }
             } catch (error) {
                 console.error('Error fetching user data:', error);
-                // Handle error
             }
         };
 
@@ -46,17 +41,18 @@ const Header = ({ mode, setmode }) => {
             setmode("light")
         }
     }
-    return (
-        <div className={` ${mode === "light" ? "bg-[#ff66008d]" : "bg-[#080917] text-white"} `}>
-            <div className='flex justify-between w-full md:w-4/5 lg:w-2/3 mx-auto p-5 md:p-7 lg:p-9 items-center -z-40'>
 
-                <div className={`text-xl font-bold `} >
-                    INotebook
+    return (
+        <div className={` ${mode === "light" ? "bg-[#1755a68d]" : "bg-[#080917] text-white"} `}>
+            <div className='flex justify-between w-full md:w-4/5 lg:w-2/3 mx-auto p-5  items-center -z-40'>
+
+                <div className={`text-xl font-semibold `} >
+                    Inotebook
                 </div>
 
                 <div className='flex gap-8 items-center '>
                     <div className='relative logout flex '>
-                        <div className='cursor-pointer font-semibold text-sm  px-2 p-1 rounded-xl shadow-2xl border shadow-black' onClick={handleLogout}>
+                        <div className='cursor-pointer font-semibold text-xs  px-2 p-1 rounded hover:rounded-md shadow-2xl border ' onClick={handleLogout}>
                             Logout
                         </div>
                     </div>
@@ -71,16 +67,16 @@ const Header = ({ mode, setmode }) => {
 
 
             {close && <div className='absolute flex items-center justify-center w-full  mx-auto min-h-[80vh] z-40 '>
-                <div className={` mx-3   ${mode === "light" ? "bg-[rgb(228,134,83)]" : "bg-[#fff] text-black"} rounded-xl flex flex-col  gap-4 px-5 py-5 `}>
+                <div className={`${mode === "light" ? "bg-[rgb(66,147,222)]" : "bg-[#fff] text-black"} rounded-lg flex flex-col  gap-3 p-7`}>
                     <IoMdClose onClick={() => setclose(!close)} className='text-xl cursor-pointer font-bold ' />
 
                     <div className='flex justify-center text-xl font-semibold '>
                         Profile
                     </div>
-                    <div className='flex font-semibold  '>
+                    <div className='flex font-semibold  text-sm'>
                         Name : {user.name}
                     </div>
-                    <div className='flex font-semibold '>
+                    <div className='flex font-semibold text-sm '>
                         Email : {user.email}
                     </div>
 

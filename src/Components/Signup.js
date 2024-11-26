@@ -20,13 +20,9 @@ const Signup = () => {
     setPassword(e.target.value);
   };
 
-  
-
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-
-
       const response = await fetch('https://i-notebook-api-eight.vercel.app/api/auth/createuser', {
         method: 'POST',
         headers: {
@@ -52,7 +48,7 @@ const Signup = () => {
     <div className='relative'>
       <div className='w-full mx-auto flex justify-center items-center flex-col px-4 '>
         <div>
-          <h1 className='text-2xl font-bold'>Register to INotebook</h1>
+          <h1 className='text-2xl font-bold'>Register to Inotebook</h1>
         </div>
         <form className='my-9 w-full flex flex-col gap-9' onSubmit={handleSignUp}>
           <input type="text" name="" id="name" placeholder='Enter Name' className='border-b-2 p-2 border-black outline-none w-full' value={name} onChange={handleNameChange} required minLength={3} />
