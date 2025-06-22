@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MdClose, MdDelete, MdEdit } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import Modal from 'react-modal';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 
 const customStyles = {
     content: {
@@ -25,10 +26,29 @@ const Notes = ({ mode, setmode }) => {
     const [description, setDescription] = useState("");
     const [notes, setNotes] = useState([]);
     const [message, setmessage] = useState("");
+    const [menuOpenId, setMenuOpenId] = useState(null);
+
+    const menuRef = useRef(null);
+    const toggleMenu = (id) => {
+        setMenuOpenId(prev => prev === id ? null : id);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setMenuOpenId(null);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://i-notebook-api-eight.vercel.app/api/notes/fetchallnotes', {
+            const response = await fetch('https://inotebook-api-cyan.vercel.app//api/notes/fetchallnotes', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,7 +74,7 @@ const Notes = ({ mode, setmode }) => {
     const addNote = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("https://i-notebook-api-eight.vercel.app/api/notes/addnote", {
+            const response = await fetch("https://inotebook-api-cyan.vercel.app//api/notes/addnote", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -82,7 +102,7 @@ const Notes = ({ mode, setmode }) => {
         try {
             const c = window.confirm("Are you sure you want to delete this note?");
             if (c) {
-                await fetch(`https://i-notebook-api-eight.vercel.app/api/notes/deletenote/${id}`, {
+                await fetch(`https://inotebook-api-cyan.vercel.app//api/notes/deletenote/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -103,7 +123,7 @@ const Notes = ({ mode, setmode }) => {
 
     const updateNote = async (id) => {
         try {
-            const response = await fetch(`https://i-notebook-api-eight.vercel.app/api/notes/updatenote/${id}`, {
+            const response = await fetch(`https://inotebook-api-cyan.vercel.app//api/notes/updatenote/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -158,17 +178,17 @@ const Notes = ({ mode, setmode }) => {
     const [show, setshow] = useState(false);
 
     return (
-        <div className={`main min-h-screen ${mode === "light" ? "bg-white" : "bg-[#000000]"}`}>
-            <div className='w-full md:w-4/5 lg:w-2/3 mx-auto'>
+        <div className={` min-h-screen ${mode === "light" ? "" : ""}`}>
+            <div className='w-full max-w-[95%] md:max-w-[85%] mx-auto'>
                 <div className={`text-center text-2xl font-bold pt-9 ${mode === "light" ? "text-black" : "text-white"}`}>
                     Your Notes
                 </div>
 
                 {message !== "" ? (<div className='text-center text-[#ff1e1e] font-semibold text-xl  my-3'>{message}</div>
                 ) : (<div className={`text-center text-xs my-2 ${mode !== "light" ? "text-gray-400" : "text-gray-700"} `}>
-              Hover over a note block to edit or delete it.
-              </div>
-              )}
+                    Hover over a note block to edit or delete it.
+                </div>
+                )}
 
                 {notes.length === 0 ? (
                     <div className={`text-center text-sm  pt-9 ${mode === "light" ? "text-gray-600" : "text-gray-300"}`}>
@@ -176,43 +196,67 @@ const Notes = ({ mode, setmode }) => {
                     </div>
                 ) : ""}
 
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-3 p-8  '>
+                <div className='grid grid-cols-2 md:grid-cols-3 gap-8 lg:grid-cols-3 p-8  w-full'>
+                    <div className={` ${mode === "light" ? "" : ""} rounded-xl relative p-2 w-[100%] mx-auto overflow-auto addnote cursor-pointer`} onClick={openModal}>
+                        <FaPlus className='text-3xl' />
+                    </div>
+
+                   
                     {notes.map(note => (
-                        <div key={note.id} className={` ${mode === "light" ? "note" : "notedark"} rounded-xl relative p-2 max-w-[400px] mx-auto overflow-auto`} >
-                            <div className='flex flex-col' onClick={() => handleShow(note.title, note.description)}>
-                                <div className='text-xl font-semibold text-center'>
-                                    {note.title.length > 20 ? note.title.slice(0, 20) + "..." : note.title}
-                                </div>
-                                <div className='text-xs px-4 py-4 text-center'>
-                                    {note.description.length > 100 ? note.description.slice(0, 100) + "..." : note.description}
-                                </div>
-                            </div>
+  <div key={note._id} className={` ${mode === "light" ? "note" : "notedark"} rounded-xl relative p-2 w-[100%] mx-auto overflow-auto`}>
+
+    <div className='flex flex-col' onClick={() => handleShow(note.title, note.description)}>
+      <div className='md:text-xl font-semibold text-center'>
+        {note.title.length > 20 ? note.title.slice(0, 20) + "..." : note.title}
+      </div>
+      <div className='text-xs px-4 py-4 text-center'>
+        {note.description.length > 100 ? note.description.slice(0, 100) + "..." : note.description}
+      </div>
+    </div>
+
+    {/* Three-dot menu */}
+    <div className="absolute top-2 right-2" ref={menuRef}>
+      <BsThreeDotsVertical
+        className="cursor-pointer text-xl"
+        onClick={(e) => {
+          e.stopPropagation(); // prevent note card click
+          toggleMenu(note._id);
+        }}
+      />
+
+      {menuOpenId === note._id && (
+        <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-md text-sm z-10 w-[100px]">
+          <div
+            className="px-4 py-2 hover:bg-red-100 cursor-pointer text-red-600"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMenuOpenId(null);
+              deleteNote(note._id);
+            }}
+          >
+            Delete
+          </div>
+          <div
+            className="px-4 py-2 hover:bg-blue-100 cursor-pointer text-blue-600"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMenuOpenId(null);
+              handleupdateNote(note._id, note.title, note.description);
+            }}
+          >
+            Edit
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+))}
 
 
-                            <div className='absolute top-0 text-2xl right-0 flex flex-col  bg-[#ff8102]  '>
-                                <div className='p-2  bg-red-600'>
-
-                                    <MdDelete
-                                        className=' text-gray-300   cursor-pointer '
-                                        style={{ transition: "1s all ease" }}
-                                        onClick={() => deleteNote(note._id)}
-                                    />
-                                </div>
-                                <div className='p-2  bg-blue-600'>
-                                    <MdEdit className=' text-gray-300   cursor-pointer '
-                                        style={{ transition: "1s all ease" }}
-                                        onClick={() => handleupdateNote(note._id, note.title, note.description)} />
-                                </div>
-                            </div>
-
-                        </div>
-                    ))}
 
                 </div>
 
-                <div className={`fixed w-[40px] h-[40px] border-2  rounded-full right-14 bottom-14 lg:right-[100px] lg:bottom-[100px] flex items-center justify-center cursor-pointer ${mode !== "light" ? "bg-white" : "bg-black"}`} onClick={openModal}>
-                    <FaPlus className={`text-xl ${mode === "light" ? "text-white" : "text-black"}`} />
-                </div>
+
                 <div>
                     <Modal
                         isOpen={modalIsOpen}

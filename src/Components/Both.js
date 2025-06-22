@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import Login from './Login'
 import Signup from './Signup'
+import { PiNotepadFill } from "react-icons/pi";
 
 const Both = () => {
     const [login, setlogin] = useState(true);
     return (
-        <div className=' h-[100vh] flex items-center justify-center'>
+        <div className=' min-h-screen flex items-center justify-center bg-[rgba(218,255,227,0.81)]'>
 
-            <div className=' flex flex-col  w-[95%] mx-2 md:w-2/3  border rounded border-gray-300 shadow-lg shadow-gray-300 max-w-[500px]'>
+            <div className=' flex flex-col  w-[85%] mx-2 md:w-2/3 border border-[rgba(137,196,255,0.81)] bg-[rgba(99,177,255,0.81)]  max-w-[500px] py-8 px-5 transform hover:scale-105 hover:rounded-xl' style={{transition: "0.5s all ease"}}>
 
                 <div>
-                    <img src="https://static.vecteezy.com/system/resources/previews/029/722/382/original/notes-icon-in-trendy-flat-style-isolated-on-white-background-notes-silhouette-symbol-for-your-website-design-logo-app-ui-illustration-eps10-free-vector.jpg" alt="" className='w-[50px] block mx-auto my-5' />
+                    <PiNotepadFill className='text-4xl block mx-auto my-5' />
                 </div>
 
                 {login === true ? <Login /> : <Signup />}

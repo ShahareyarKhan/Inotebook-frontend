@@ -16,13 +16,13 @@ const HomePage = () => {
     const [mode, setmode] = useState("light");
 
     return (
-        <>
+        <div className={`${mode === "light" ? "bg-gradient-to-br from-[#ffe9e9] to-[#ff9393] text-black" : "bg-gradient-to-br from-[#00002c] to-[#000] text-white"}`}>
             <Header mode={mode} setmode={setmode} />
             <div className=' min-h-screen ' >
                 <Notes mode={mode} setmode={setmode} />
             </div>
             <Footer mode={mode} setmode={setmode}/>
-        </>
+        </div>
     )
 }
 

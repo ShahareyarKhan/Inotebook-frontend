@@ -19,7 +19,7 @@ const Login = () => {
     const handleLogIn = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://i-notebook-api-eight.vercel.app/api/auth/login', {
+            const response = await fetch('https://inotebook-api-cyan.vercel.app//api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,16 +43,16 @@ const Login = () => {
     };
 
     return (
-        <div className='relative w-full mx-auto flex justify-center items-center flex-col px-4  bg-white'>
+        <div className='relative w-full mx-auto flex justify-center items-center flex-col px-4  '>
 
             <div>
-                <h1 className='text-2xl  font-bold'>Log In to INotebook</h1>
+                <h1 className='text-2xl  font-bold'>Log in to Inotebook</h1>
 
             </div>
             <form className='my-9 w-full flex flex-col ' onSubmit={handleLogIn}>
-                <input type="text" name="" id="name" placeholder='Enter Email' className='border-b-2 p-2 border-black outline-none w-full' value={email} onChange={handleEmailChange} required />
-                <input type="password" name="" id="password" placeholder='Enter Password' className='mt-9 border-b-2 p-2 border-black outline-none w-full' value={password} onChange={handlePasswordChange} required minLength={8} />
-                <button type="submit" className='p-2 mt-9 bg-[#ff9719]  text-black border-2 rounded-xl font-semibold' >Log In</button>
+                <input type="text" name="" id="name" placeholder='Enter Email' className='border-b-2 p-2 border-black outline-none w-full bg-transparent placeholder:text-black' value={email} onChange={handleEmailChange} required />
+                <input type="password" name="" id="password" placeholder='Enter Password' className='mt-9 border-b-2 p-2 border-black outline-none bg-transparent placeholder:text-black w-full' value={password} onChange={handlePasswordChange} required minLength={8} />
+                <button type="submit" className='p-2 mt-9 text-black border rounded font-semibold border-black' >Log In</button>
             </form>
             <div className={`absolute  bg-green-400 text-xl p-4 w-full text-center font-semibold top-1  ${login === true ? "opacity-1" : "opacity-0"}`} style={{ transition: "2s all ease" }}>Login Successfully.</div>
             
